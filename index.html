@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>My Portfolio — Ojas</title>
+
+  <!-- Simple internal stylesheet so you can run one file -->
+  <style>
+    :root{
+      --bg:#f3f6f8;
+      --card:#ffffff;
+      --accent:#0077cc;
+      --muted:#555;
+      --text:#111;
+      --radius:12px;
+      --gap:18px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,Segoe UI,Arial,Helvetica,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      padding:28px;
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+    }
+
+    .page {
+      width:100%;
+      max-width:900px;
+      display:flex;
+      flex-direction:column;
+      gap:var(--gap);
+    }
+
+    header{
+      background:#0f1724;
+      color:#fff;
+      padding:28px;
+      border-radius:var(--radius);
+      box-shadow:0 8px 30px rgba(2,6,23,0.12);
+    }
+
+    .header-inner{
+      display:flex;
+      align-items:center;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+
+    .brand {
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+    }
+
+    h1{
+      font-size:1.6rem;
+      margin:0;
+      letter-spacing:0.2px;
+    }
+
+    .subtitle{
+      font-style:italic;
+      color:#cfe9ff;
+      margin-top:6px;
+      font-weight:500;
+    }
+
+    /* Typewriter area */
+    .typewrap{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin-top:10px;
+    }
+    #typewriter{
+      font-weight:700;
+      font-size:1.1rem;
+      white-space:nowrap;
+      display:inline-block;
+      color:var(--accent);
+    }
+    .tw-cursor{
+      display:inline-block;
+      width:2px;
+      height:1.05em;
+      background:var(--accent);
+      animation:tw-blink 900ms steps(2) infinite;
+      border-radius:2px;
+      vertical-align:middle;
+    }
+    @keyframes tw-blink{50%{opacity:0}}
+
+    main{
+      display:grid;
+      grid-template-columns:1fr 320px;
+      gap:18px;
+      align-items:start;
+    }
+
+    /* Left column (about + projects) */
+    .card{
+      background:var(--card);
+      border-radius:12px;
+      padding:20px;
+      box-shadow:0 6px 18px rgba(10,20,30,0.06);
+    }
+
+    .projects ul{
+      list-style:none;
+      padding:0;
+      margin:12px 0 0 0;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    .projects li{
+      padding:10px 12px;
+      border-radius:8px;
+      background:linear-gradient(90deg,#eef8ff, #ffffff);
+      font-weight:600;
+      width:100%;
+      max-width:360px;
+    }
+
+    /* Right column (contact) */
+    .contact {
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .contact a{
+      color:var(--accent);
+      text-decoration:none;
+      font-weight:600;
+      word-break:break-word;
+    }
+    .muted{color:var(--muted); font-size:0.95rem}
+
+    footer{
+      text-align:center;
+      color:var(--muted);
+      font-size:0.95rem;
+      margin-top:6px;
+    }
+
+    /* Responsive */
+    @media (max-width:880px){
+      main{grid-template-columns:1fr; padding-bottom:6px}
+    }
+  </style>
+</head>
+<body>
+  <div class="page" role="document">
+    <header>
+      <div class="header-inner">
+        <div class="brand" aria-hidden="false">
+          <h1 id="site-title">Welcome to my portfolio</h1>
+
+          <!-- Typewriter lives here -->
+          <div class="typewrap" aria-hidden="false">
+            <span id="typewriter" aria-live="polite"></span>
+            <span class="tw-cursor" aria-hidden="true"></span>
+          </div>
+
+          <p class="subtitle">I'm a self-taught web developer</p>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Left: About & Projects -->
+      <section class="card" aria-labelledby="about-heading">
+        <h2 id="about-heading">About me</h2>
+        <p class="muted">I started learning web development in 2018. I focus on HTML, CSS and JavaScript — building clean, responsive frontends.</p>
+
+        <hr style="margin:14px 0; border:none; height:1px; background:#f0f2f5">
+
+        <section class="projects" aria-labelledby="projects-heading">
+          <h3 id="projects-heading">My projects</h3>
+          <ul>
+            <li id="project-portfolio">This portfolio</li>
+            <li id="project-datafetch">Data fetcher (demo)</li>
+            <li id="project-gym">Gym website (landing page)</li>
+          </ul>
+        </section>
+      </section>
+
+      <!-- Right: Contact -->
+      <aside class="contact card" aria-labelledby="contact-heading">
+        <h3 id="contact-heading">Contact</h3>
+        <p class="muted">Available for freelance work — shoot a message:</p>
+
+        <!-- use mailto and tel so it's clickable -->
+        <div>
+          <div><strong>Email:</strong> <a href="mailto:ojas@ytpro.gmail.com.com" rel="noopener">ojas@ytpro.gmail.com</a></div>
+          <div><strong>Phone:</strong> <a href="tel:+919960656581" rel="noopener">+91 99606 56581</a></div>
+        </div>
+
+        <div style="margin-top:6px" class="muted">Tip: Replace the placeholder email address above with a real one before publishing.</div>
+      </aside>
+    </main>
+
+    <footer class="muted card" role="contentinfo" style="margin-top:12px; font-size:0.95rem;">
+      © <span id="year"></span> Ojas — Built with ❤️ and JavaScript
+    </footer>
+  </div>
+
+  <!-- Typewriter script: simple, reliable -->
+  <script>
+  (function () {
+    // Phrases shown by the typewriter
+    const phrases = [
+      "i build clean websites.",
+      "i make responsive frontends.",
+      "available for freelance."
+    ];
+
+    const el = document.getElementById('typewriter');
+    const yearEl = document.getElementById('year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+    if (!el) return;
+
+    // Config
+    const typeSpeed = 70;    // ms per character while typing
+    const deleteSpeed = 40;  // ms per character while deleting
+    const pauseAfter = 1200; // ms pause after a full phrase
+
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let deleting = false;
+
+    function tick() {
+      const current = phrases[phraseIndex];
+      if (!deleting) {
+        el.textContent = current.slice(0, charIndex + 1);
+        charIndex++;
+        if (charIndex === current.length) {
+          deleting = true;
+          setTimeout(tick, pauseAfter);
+        } else {
+          setTimeout(tick, typeSpeed + jitter(20));
+        }
+      } else {
+        el.textContent = current.slice(0, charIndex - 1);
+        charIndex--;
+        if (charIndex === 0) {
+          deleting = false;
+          phraseIndex = (phraseIndex + 1) % phrases.length;
+          setTimeout(tick, 260);
+        } else {
+          setTimeout(tick, deleteSpeed + jitter(15));
+        }
+      }
+    }
+
+    function jitter(max) {
+      return Math.floor(Math.random() * max) - Math.floor(max / 2);
+    }
+
+    // start
+    setTimeout(tick, 400);
+  })();
+  </script>
+</body>
+</html>
